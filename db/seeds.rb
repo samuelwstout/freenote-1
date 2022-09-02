@@ -6,12 +6,14 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-# contractor1 = Contractor.create(username: 'contractor1', password: 'password', first_name: 'Contractor1 First Name', last_name: 'Contractor1 Last Name')
+# contractor account creation
+contractor = Contractor.create(username: 'contractor100', password: 'password', first_name: 'Contractor FN', last_name: 'Contractor LN')
 
-# job1 = contractor1.jobs.create(title: 'Title1', description: 'Description1', date: '9/1/22', location: 'Location', budget: 'budget1')
+# contractor creates job
+job = Job.create(title: 'Job title', description: 'Job description', date: '9/2/22', location: 'Job location', budget: 'Job budget', contractor_id: contractor.id)
 
-# musician1 = Musician.create(username: 'musician1', password: 'password', first_name: 'Musician1 First Name', last_name: 'Contractor1 Last Name', instrument: 'Instrument1', location: 'Location1', bio: 'Bio1', media_url: 'MediaUrl1')
+# musician account creation
+musician = Musician.create(username: 'musician100', password: 'password', first_name: 'Musician FN', last_name: 'Musician LN', instrument: 'instrument1', location: 'location1', bio: 'bio1', media_url: 'mediaurl1')
 
-# job1.update(resume_url: 'musician1 resume', cover_letter_url: 'musician1 cover letter')
-
-# job1.update(accepted: true)
+# musician applies for job
+job_application = JobApplication.create(resume_url: 'resume', cover_letter_url: 'cover letter', accepted: false, musician_id: musician.id, job_id: job.id)
