@@ -1,4 +1,4 @@
-class Contractor < ApplicationRecord
+class Contractor < User
     has_many :jobs
 
     has_secure_password
