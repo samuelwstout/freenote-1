@@ -6,12 +6,12 @@ class ApplicationController < ActionController::API
   
     private
   
-    def current_contractor
-      @current_contractor ||= Contractor.find_by(id: session[:musician_id])
+    def current_user
+      @current_user ||= User.find_by(user: session[:user_id])
     end
   
     def logged_in?
-      !!current_contractor
+      !!current_user
     end
   
     def confirm_authentication
