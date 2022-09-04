@@ -1,3 +1,0 @@
-class Musician < User
- 
-end
