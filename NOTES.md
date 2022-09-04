@@ -1,22 +1,29 @@
 ## Models
+- User
 - Musician
 - Contractor
+- MusicianProfile
 - Job
+- JobApplication
+
+# User
+- Attributes: user_id:integer type username password_digest first_name last_name 
 
 # Musician
 - has many contractors through jobs
 - has many job_applications
 - has many jobs through job_applications
+- has one musician_profile
 
 # Musician Attributes
 - first_name
 - last_name
 - username
 - password_digest
-- instrument
-- location
-- bio:text
-- media_url
+
+# MusicianProfile
+- belongs to Musician
+- Attributes: instrument location bio:text media_url
 
 # Contractor
 - has many jobs
@@ -52,6 +59,3 @@
 - accepted:boolean
 - musician:belongs_to
 - job:belongs_to
-
-
-
