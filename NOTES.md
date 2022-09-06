@@ -1,33 +1,19 @@
-## Models
-- User
-- Musician
-- Contractor
-- MusicianProfile
-- Job
-- JobApplication
-
-# User
-- Attributes: user_id:integer type username password_digest first_name last_name 
-
 # Musician
-- has many contractors through jobs
-- has many job_applications
-- has many jobs through job_applications
-- has one musician_profile
+- has many job applications
+- has many jobs, through job applications
 
 # Musician Attributes
-- first_name
-- last_name
 - username
 - password_digest
-
-# MusicianProfile
-- belongs to Musician
-- Attributes: instrument location bio:text media_url
+- first_name
+- last_name
+- location
+- instrument
+- bio:text
+- media_url
 
 # Contractor
 - has many jobs
-- has many musicians through jobs
 
 # Contractor Attributes
 - first_name

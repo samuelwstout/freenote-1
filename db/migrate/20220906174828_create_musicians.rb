@@ -5,8 +5,8 @@ class CreateMusicians < ActiveRecord::Migration[7.0]
       t.string :password_digest
       t.string :first_name
       t.string :last_name
-      t.string :instrument
       t.string :location
+      t.string :instrument
       t.text :bio
       t.string :media_url
 
