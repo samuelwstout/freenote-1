@@ -5,9 +5,5 @@ Rails.application.routes.draw do
   # root "articles#index"
   namespace :api do
 
-    get "/me", to: "musicians#show"
-    post "/signup", to: "musicians#create"
-    post "/login", to: "sessions#create"
-    delete "/logout", to: "sessions#destroy"
   end
 end

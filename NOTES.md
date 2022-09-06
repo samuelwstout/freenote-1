@@ -1,8 +1,5 @@
-# Musician
-- has many job applications
-- has many jobs, through job applications
 
-# Musician Attributes
+# User Attributes (Inherit into Musician and Contractor)
 - username
 - password_digest
 - first_name
@@ -11,15 +8,14 @@
 - instrument
 - bio:text
 - media_url
+- type
+
+# Musician
+- has many job applications
+- has many jobs, through job applications
 
 # Contractor
 - has many jobs
-
-# Contractor Attributes
-- first_name
-- last_name
-- username
-- password_digest
 
 # Job
 - belongs to contractor
@@ -45,3 +41,9 @@
 - accepted:boolean
 - musician:belongs_to
 - job:belongs_to
+
+
+## Single Table Inheritance (STI)
+
+- Create a User model that acts as the base model for Musician and Contractor. The purpose of doing this is to encapsulate the authentication process for both Musician and Contractor to one User table. All of the attributes for both Contractor and Musician will go into this User table.
+
