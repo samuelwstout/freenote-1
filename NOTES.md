@@ -1,14 +1,5 @@
-
-# User Attributes (Inherit into Musician and Contractor)
-- username
-- password_digest
-- first_name
-- last_name
-- location
-- instrument
-- bio:text
-- media_url
-- type
+# User(Inherit into Musician and Contractor)
+- attributes: username password_digest first_name last_name type
 
 # Musician
 - has many job applications
@@ -17,30 +8,22 @@
 # Contractor
 - has many jobs
 
+# Musician Profile
+- belongs to musician
+- attributes: location instrument bio:text media_url
+
 # Job
 - belongs to contractor
 - has many job_applications
 - has many musicians through job_applications
+- attributes: title description:text date:date location budget:integer
 
-# Job attributes
-- title
-- description:text
-- date
-- location
-- budget
-- musician:belongs_to
-- contractor:belongs_to
 
 # JobApplication
 - belongs to job
 - belongs to musician
+- attributes: resume_url cover_letter_url accepted:boolean
 
-# JobApplication attributes
-- resume_url
-- cover_letter_url
-- accepted:boolean
-- musician:belongs_to
-- job:belongs_to
 
 
 ## Single Table Inheritance (STI)
