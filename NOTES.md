@@ -27,3 +27,27 @@
 ## Single Table Inheritance (STI)
 
 - Create a User model that acts as the base model for Musician and Contractor. The purpose of doing this is to encapsulate the authentication process for both Musician and Contractor to one User table. All of the attributes for both Contractor and Musician will go into this User table.
+
+- Question: How do I establish foreign keys in my schema for belongs_to:musician and belongs_to:contractor if they are inherited from User?
+
+- Answer: 
+
+You should define the references like this instead:
+
+create_table :generated_feedbacks do |t|
+  t.references :teacher, references: :users
+  …
+end
+
+The CreateEnglishGrades should use a similar approach:
+
+create_table :english_grades do |t|
+  t.references :teacher, references: :users
+  t.references :student, references: :users
+  …
+end
+
+The foreign keys then need to be defined separately:
+
+add_foreign_key :english_grades, :users, column: :teacher_id
+add_foreign_key :english_grades, :users, column: :student_id

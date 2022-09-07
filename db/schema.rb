@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_07_013813) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_07_054032) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -20,6 +20,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_07_013813) do
     t.boolean "accepted"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "musician_id"
+    t.bigint "job_id", null: false
+    t.index ["job_id"], name: "index_job_applications_on_job_id"
+    t.index ["musician_id"], name: "index_job_applications_on_musician_id"
   end
 
   create_table "jobs", force: :cascade do |t|
@@ -30,6 +34,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_07_013813) do
     t.integer "budget"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "contractor_id"
+    t.index ["contractor_id"], name: "index_jobs_on_contractor_id"
   end
 
   create_table "musician_profiles", force: :cascade do |t|
@@ -39,6 +45,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_07_013813) do
     t.string "media_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "musician_id"
+    t.index ["musician_id"], name: "index_musician_profiles_on_musician_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -51,4 +59,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_07_013813) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "job_applications", "jobs"
+  add_foreign_key "job_applications", "users", column: "musician_id"
+  add_foreign_key "jobs", "users", column: "contractor_id"
+  add_foreign_key "musician_profiles", "users", column: "musician_id"
 end
