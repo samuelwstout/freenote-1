@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Landingpage from './components/Static/Landingpage';
 import Login from './components/Authentication/Login';
@@ -12,8 +13,27 @@ import ContractorProfile from './components/ContractorApp/ContractorProfile';
 import MusicianProfile from './components/MusicianApp/MusicianProfile';
 
 const App = () => {
+  const [currentUser, setCurrentUser] = useState(null)
+  const [authChecked, setAuthChecked] = useState(false)
+
+  useEffect(() => {
+    fetch('/api/me', {
+      credentials: 'include'
+    })
+      .then(res => {
+        if (res.ok) {
+          res.json().then((user) => {
+            setCurrentUser(user)
+            setAuthChecked(true)
+          })
+        } else {
+          setAuthChecked(true)
+        }
+      })
+  }, [])
 
   return (
+
     <Router>
       <Routes>
         <Route path="/" element={<Landingpage />} />

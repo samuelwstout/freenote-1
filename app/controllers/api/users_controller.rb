@@ -9,22 +9,5 @@ class Api::UsersController < ApplicationController
       render json: { error: 'No active session' }, status: :unauthorized
     end
   end
-
-  # post '/api/signup'
   
-  # def create
-  #   user = User.create(user_params)
-  #   if user.valid?
-  #     session[:user_id] = user.id
-  #     render json: user, status: :ok
-  #   else
-  #     render json: { error: user.errors }, status: :unprocessable_entity
-  #   end
-  # end
-
-  private
-
-  def user_params
-    params.permit(:username, :password, :password_confirmation)
-  end
 end
