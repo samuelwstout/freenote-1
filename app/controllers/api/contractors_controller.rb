@@ -11,7 +11,7 @@ class Api::ContractorsController < ApplicationController
         contractor = Contractor.create(user_params)
         if contractor.valid?
             session[:user_id] = contractor.id
-            render json: contractor, status: :ok
+            render json: contractor.to_json(include: [:type]), status: :ok
         else
             render json: { error: contractor.errors }, status: :unprocessable_entity
         end

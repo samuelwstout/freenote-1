@@ -30,9 +30,8 @@ const SignupAsContractor = ({ setCurrentUser }) => {
       .then(res => {
         if (res.ok) {
           res.json().then(user => {
-            console.log(user)
             setCurrentUser(user)
-            // navigate('/create_job')
+            navigate('/create_job')
           })
         } else {
           res.json().then(errors => {

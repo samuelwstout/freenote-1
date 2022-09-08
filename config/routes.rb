@@ -6,9 +6,9 @@ Rails.application.routes.draw do
   namespace :api do
    resources :contractors, only: [:index, :destroy]
 
-    # get "/me", to: "users#show"
+    get "/me", to: "users#show"
     post "/signup_as_contractor", to: "contractors#create"
     # post "/login", to: "sessions#create"
-    # delete "/logout", to: "sessions#destroy"
+    delete "/logout", to: "sessions#destroy"
   end
 end

@@ -25,24 +25,23 @@ const App = () => {
           res.json().then((user) => {
             setCurrentUser(user)
             setAuthChecked(true)
-            // console.log(currentUser)
           })
         } else {
           setAuthChecked(true)
         }
       })
   }, [])
-
+console.log(currentUser)
   return (
 
     <Router>
       <Routes>
-        <Route path="/" element={<Landingpage />} />
-        <Route path="/signup" element={<Signup />} />
+        <Route path="/" element={<Landingpage currentUser={currentUser} />} />
+        <Route path="/signup" element={<Signup currentUser={currentUser} />} />
         <Route path="/signup_as_contractor" element={<SignupAsContractor setCurrentUser={setCurrentUser}/>} />
         <Route path="/signup_as_musician" element={<SignupAsMusician />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/create_job" element={<CreateJob />} />
+        <Route path="/create_job" element={<CreateJob setCurrentUser={setCurrentUser} />} />
         <Route path="/my_jobs" element={<MyJobs />} />
         {/* When a contractor clicks on a job in 'my jobs'. /my_jobs/job/:id */}
         <Route path="/contractor_profile" element={<ContractorProfile />} />

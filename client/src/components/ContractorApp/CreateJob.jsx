@@ -1,10 +1,10 @@
 import React from 'react';
 import NavBarContractor from '../Navigation/NavBarContractor';
 
-const CreateJob = () => {
+const CreateJob = ({setCurrentUser}) => {
   return (
     <div>
-      <NavBarContractor />
+      <NavBarContractor setCurrentUser={setCurrentUser} />
       <h1>Create Job Post</h1>
         <form>
             <input placeholder='Headline'></input>
