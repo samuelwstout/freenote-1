@@ -25,6 +25,7 @@ const App = () => {
           res.json().then((user) => {
             setCurrentUser(user)
             setAuthChecked(true)
+            // console.log(currentUser)
           })
         } else {
           setAuthChecked(true)
@@ -38,7 +39,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Landingpage />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/signup_as_contractor" element={<SignupAsContractor />} />
+        <Route path="/signup_as_contractor" element={<SignupAsContractor setCurrentUser={setCurrentUser}/>} />
         <Route path="/signup_as_musician" element={<SignupAsMusician />} />
         <Route path="/login" element={<Login />} />
         <Route path="/create_job" element={<CreateJob />} />

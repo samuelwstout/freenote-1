@@ -20,6 +20,8 @@ const SignupAsContractor = ({ setCurrentUser }) => {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
+        first_name: firstName,
+        last_name: lastName,
         username,
         password,
         password_confirmation: passwordConfirmation
@@ -28,8 +30,9 @@ const SignupAsContractor = ({ setCurrentUser }) => {
       .then(res => {
         if (res.ok) {
           res.json().then(user => {
+            console.log(user)
             setCurrentUser(user)
-            navigate('/create_job')
+            // navigate('/create_job')
           })
         } else {
           res.json().then(errors => {
@@ -57,11 +60,11 @@ const SignupAsContractor = ({ setCurrentUser }) => {
           </p>
           <p>
             <label htmlFor='password'>Password </label>
-            <input type="text" name="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+            <input type="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} />
           </p>
           <p>
           <label htmlFor='password_confirmation'>Password Confirmation </label>
-          <input type="text" name="password_confirmation" value={passwordConfirmation} onChange={(e) => setPasswordConfirmation(e.target.value)} />
+          <input type="password" name="password_confirmation" value={passwordConfirmation} onChange={(e) => setPasswordConfirmation(e.target.value)} />
           </p>
             <input type='submit'></input>
         </form>
