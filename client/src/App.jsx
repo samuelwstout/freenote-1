@@ -9,6 +9,7 @@ import MyJobs from './components/ContractorApp/MyJobs';
 import FindWork from './components/MusicianApp/FindWork';
 import MyApplications from './components/MusicianApp/MyApplications';
 import ContractorProfile from './components/ContractorApp/ContractorProfile';
+import MusicianProfile from './components/MusicianApp/MusicianProfile';
 
 const App = () => {
 
@@ -27,7 +28,7 @@ const App = () => {
         <Route path="/find_work" element={<FindWork />} />
         {/* When musician clicks 'apply' on a job posting (/find_work/job/:id) */}
         <Route path="/my_applications" element={<MyApplications />} />
-        <Route path="/musician_profile"></Route>
+        <Route path="/musician_profile" element={<MusicianProfile />}></Route>
       </Routes>
   </Router>
   );
