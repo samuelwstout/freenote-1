@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   namespace :api do
-    # From lesson: resources :posts, only: [:index]
+   resources :contractors, only: [:index, :destroy]
 
     # get "/me", to: "users#show"
     post "/signup_as_contractor", to: "contractors#create"

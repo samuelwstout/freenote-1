@@ -2,6 +2,11 @@ class Api::ContractorsController < ApplicationController
 
 # post '/api/signup_as_contractor'
 
+    def index
+        contractors = Contractor.all
+        render json: contractors
+    end
+
     def create
         contractor = Contractor.create(user_params)
         if contractor.valid?
@@ -9,6 +14,16 @@ class Api::ContractorsController < ApplicationController
             render json: contractor, status: :ok
         else
             render json: { error: contractor.errors }, status: :unprocessable_entity
+        end
+    end
+
+    def destroy
+        contractor = Contractor.find_by(id: params[:id])
+        if contractor
+            contractor.destroy
+            head :no_content
+        else
+            render json: { error: "Contractor not found" }, status: :not_found
         end
     end
 
