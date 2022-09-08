@@ -1,7 +1,7 @@
 class Api::ContractorsController < ApplicationController
 
-# post '/api/signup_as_contractor'
-
+    skip_before_action :confirm_authentication
+    
     def index
         contractors = Contractor.all
         render json: contractors
@@ -11,7 +11,7 @@ class Api::ContractorsController < ApplicationController
         contractor = Contractor.create(user_params)
         if contractor.valid?
             session[:user_id] = contractor.id
-            render json: contractor.to_json(include: [:type]), status: :ok
+            render json: contractor, status: :ok
         else
             render json: { error: contractor.errors }, status: :unprocessable_entity
         end

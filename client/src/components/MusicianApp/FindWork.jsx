@@ -1,11 +1,12 @@
 import React from 'react';
 import NavBarMusician from '../Navigation/NavBarMusician';
 
-const FindWork = () => {
+const FindWork = ({currentUser, setCurrentUser}) => {
+
   return (
     <div>
-       <h2>Hey, current musician!</h2>
-        <NavBarMusician />
+      <h1>{currentUser.username}</h1>
+        <NavBarMusician setCurrentUser={setCurrentUser} />
         <input placeholder='search'></input>
         <input type='submit'></input>
 

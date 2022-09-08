@@ -1,14 +1,21 @@
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 
-const NavBarMusician = () => {
-    // put {logoutMusician} in parameter
+const NavBarMusician = ({setCurrentUser}) => {
+
   const navigate = useNavigate();
 
-  const handleLogout = (e) => {
-    e.preventDefault()
-    // logoutMusician()
-    navigate('/')
+  const handleLogout = () => {
+    fetch('/api/logout', {
+      method: 'DELETE',
+      credentials: 'include'
+    })
+    .then(res => {
+      if (res.ok) {
+        setCurrentUser(null)
+        navigate('/')
+      }
+    })
   }
 
   return (
@@ -17,7 +24,7 @@ const NavBarMusician = () => {
       <li onClick={ handleLogout }>Freenote</li>
         <li><Link to="/find_work">Find Work</Link></li>
         <li><Link to="/my_applications">My Applications</Link></li>
-        <li onClick={ handleLogout }>Logout</li>
+        <p><button onClick={handleLogout}>Logout</button></p>
       </ul>
     </div>
   )
