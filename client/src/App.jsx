@@ -28,7 +28,7 @@ const App = () => {
         <Route path="/find_work" element={<FindWork />} />
         {/* When musician clicks 'apply' on a job posting (/find_work/job/:id) */}
         <Route path="/my_applications" element={<MyApplications />} />
-        <Route path="/musician_profile" element={<MusicianProfile />}></Route>
+        <Route path="/musician_profile" element={<MusicianProfile />} />
       </Routes>
   </Router>
   );

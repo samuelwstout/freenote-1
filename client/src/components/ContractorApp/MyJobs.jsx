@@ -1,8 +1,13 @@
-import React from 'react'
+import React from 'react';
+import NavBarContractor from '../Navigation/NavBarContractor';
 
 const MyJobs = () => {
   return (
-    <div>MyJobs</div>
+    <div>
+        <NavBarContractor />
+        <h1>My Jobs</h1>
+        <h2>Jobs go here</h2>
+    </div>
   )
 }
 
