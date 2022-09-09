@@ -1,50 +1,57 @@
 import React, { useState } from 'react'
-// import { baseUrl, headers } from '../../Globals'
 import { Link, useNavigate } from 'react-router-dom'
 
-const Login = () => {
+const Login = ({setCurrentUser}) => {
 
   const navigate = useNavigate();
-
-  const [email, setEmail] = useState('');
+  
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault()
-
-  //   const strongParams = {
-  //       email,
-  //       password
-  //   }
-
-  //   fetch(baseUrl + '/login', {
-  //     method: "POST",
-  //     headers,
-  //     body: JSON.stringify(strongParams)
-  //   })
-  //     .then(r => r.json())
-  //     .then(data => {
-  //       loginMusician(data.musician)
-  //       localStorage.setItem('jwt', data.token)
-  //       if (data.musician) navigate('/find_work')
-  //     })
-  // }
-
-  // onSubmit={ handleSubmit } in <form>
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    fetch('/api/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({username, password})
+    })
+      .then(res => {
+        if (res.ok) {
+          res.json().then(user => {
+            setCurrentUser(user)
+          })
+        } else {
+          res.json().then(errors => {
+            console.error(errors)
+          })
+        }
+      })
+  }
 
   return (
     <div>
-       <h1>Login</h1>
-        <form>
-          <div>
-            <label htmlFor='email'>Email: </label>
-            <input type='text' name='email' id='email' value={ email } onChange={e => setEmail(e.target.value)} />
-          </div>
-          <div>
-            <label htmlFor='password'>Password: </label>
-            <input type='password' name='password' id='password' value={ password } onChange={e => setPassword(e.target.value)} />
-          </div>
-
+        <form onSubmit={handleSubmit}>
+          <h1>Log In</h1>
+        <p>
+          <label htmlFor="username">Username </label>
+          <input
+            type="text"
+            name="username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+        </p>
+        <p>
+          <label htmlFor="password">Password </label>
+          <input
+            type="password"
+            name=""
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </p>
           <input type='submit' value='Login' />
         </form>
 

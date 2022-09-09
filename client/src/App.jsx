@@ -24,7 +24,7 @@ console.log(currentUser)
         <Route path="/signup" element={<Signup currentUser={currentUser} />} />
         <Route path="/signup_as_contractor" element={<SignupAsContractor setCurrentUser={setCurrentUser} />} />
         <Route path="/signup_as_musician" element={<SignupAsMusician setCurrentUser={setCurrentUser} />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/login" element={<Login setCurrentUser={setCurrentUser} />} />
         <Route path="/create_job" element={<CreateJob setCurrentUser={setCurrentUser} currentUser={currentUser} />} />
         <Route path="/my_jobs" element={<MyJobs />} />
         {/* When a contractor clicks on a job in 'my jobs'. /my_jobs/job/:id */}
