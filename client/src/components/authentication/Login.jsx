@@ -21,6 +21,12 @@ const Login = ({setCurrentUser}) => {
         if (res.ok) {
           res.json().then(user => {
             setCurrentUser(user)
+            if (user.type === 'Contractor') {
+              navigate('/create_job')
+            }
+            if (user.type === 'Musician') {
+              navigate('/find_work')
+            }
           })
         } else {
           res.json().then(errors => {
