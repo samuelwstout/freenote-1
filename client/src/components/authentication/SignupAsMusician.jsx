@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 
-const SignupAsMusician = ({ setCurrentUser }) => {
+const SignupAsMusician = ({ setCurrentUser, setLoggedIn }) => {
 
   const navigate = useNavigate()
 
@@ -32,6 +32,7 @@ const SignupAsMusician = ({ setCurrentUser }) => {
           res.json().then(user => {
             setCurrentUser(user)
             navigate('/find_work')
+            setLoggedIn(true)
           })
         } else {
           res.json().then(errors => {

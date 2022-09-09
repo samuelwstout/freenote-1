@@ -1,11 +1,22 @@
-import React from 'react';
+import React, {useEffect} from 'react';
+import { useNavigate } from 'react-router-dom';
 import NavBarMusician from '../Navigation/NavBarMusician';
 
-const FindWork = ({currentUser, setCurrentUser}) => {
+const FindWork = ({currentUser, setCurrentUser, loggedIn}) => {
+  
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (loggedIn == false) {
+      navigate('/')
+    }
+  }, [loggedIn])
 
   return (
     <div>
-      <h1>{currentUser.username}</h1>
+      { loggedIn &&
+        <h1>{currentUser.username}</h1>
+      }
         <NavBarMusician setCurrentUser={setCurrentUser} />
         <input placeholder='search'></input>
         <input type='submit'></input>
@@ -20,8 +31,9 @@ const FindWork = ({currentUser, setCurrentUser}) => {
             <button>Apply</button>
         </div>
         <p>So on...</p>
+      
     </div>
-  )
+    )
 }
 
 export default FindWork
