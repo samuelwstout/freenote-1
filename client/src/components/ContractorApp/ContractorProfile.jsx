@@ -7,10 +7,10 @@ const ContractorProfile = ({currentUser}) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (currentUser == null) {
+    if (!currentUser) {
       navigate('/')
     }
-  }, [currentUser])
+  }, [currentUser, navigate])
 
   return (
     <div>

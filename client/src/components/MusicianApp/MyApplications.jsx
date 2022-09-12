@@ -1,9 +1,16 @@
-import React from 'react';
+import React, {useEffect} from 'react';
+import { useNavigate } from 'react-router-dom';
 import NavBarMusician from '../Navigation/NavBarMusician';
 
 const MyApplications = ({setCurrentUser, currentUser}) => {
 
+const navigate = useNavigate()
 
+useEffect(() => {
+  if (!currentUser) {
+      navigate('/')
+  }
+}, [currentUser, navigate])
 
   return (
     <div>

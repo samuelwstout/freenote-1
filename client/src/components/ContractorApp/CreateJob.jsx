@@ -7,8 +7,13 @@ const CreateJob = ({setCurrentUser, currentUser}) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (currentUser == null) {
+    if (!currentUser) {
       navigate('/')
+    }
+    if (currentUser) {
+      if (currentUser.type === 'Musician') {
+        navigate('/find_work')
+      }
     }
   }, [currentUser, navigate])
 

@@ -24,6 +24,7 @@ useEffect(() => {
   })
 }, [])
 
+
   return (
     <Router>
       <Routes>
@@ -39,7 +40,7 @@ useEffect(() => {
         <Route path="/find_work" element={<FindWork setCurrentUser={setCurrentUser} currentUser={currentUser} />} />
         {/* When musician clicks 'apply' on a job posting (/find_work/job/:id) */}
         <Route path="/my_applications" element={<MyApplications setCurrentUser={setCurrentUser} currentUser={currentUser} />} />
-        <Route path="/musician_profile" element={<MusicianProfile />} />
+        <Route path="/musician_profile" element={<MusicianProfile currentUser={currentUser} />} />
       </Routes>
   </Router>
   );

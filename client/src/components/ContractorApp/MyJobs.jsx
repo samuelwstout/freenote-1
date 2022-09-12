@@ -7,7 +7,7 @@ const MyJobs = ({currentUser, setCurrentUser}) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (currentUser == null) {
+    if (!currentUser) {
       navigate('/')
     }
   }, [currentUser, navigate])
