@@ -1,15 +1,13 @@
-import React, {useEffect} from 'react';
-import { useNavigate } from 'react-router-dom';
+import React from 'react';
 import NavBarMusician from '../Navigation/NavBarMusician';
 
-const MyApplications = () => {
+const MyApplications = ({setCurrentUser, currentUser}) => {
 
-  const navigate = useNavigate();
 
 
   return (
     <div>
-       <NavBarMusician />
+       <NavBarMusician setCurrentUser={setCurrentUser} currentUser={currentUser} />
         <h2>My applications</h2>
         <h3>Headline           status: insert status</h3>
         <p>So on...</p>

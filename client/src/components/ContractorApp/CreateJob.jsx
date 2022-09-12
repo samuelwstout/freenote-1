@@ -10,14 +10,11 @@ const CreateJob = ({setCurrentUser, currentUser}) => {
     if (currentUser == null) {
       navigate('/')
     }
-  }, [currentUser])
+  }, [currentUser, navigate])
 
   return (
     <div>
-      { currentUser &&
-        <h1>{currentUser.username}</h1>
-      }
-      <NavBarContractor setCurrentUser={setCurrentUser} />
+      <NavBarContractor setCurrentUser={setCurrentUser} currentUser={currentUser} />
       <h1>Create Job Post</h1>
         <form>
             <input placeholder='Headline'></input>

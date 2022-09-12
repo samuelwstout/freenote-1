@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 
-const NavBarMusician = ({setCurrentUser}) => {
+const NavBarMusician = ({setCurrentUser, currentUser}) => {
 
   const navigate = useNavigate();
 
@@ -20,6 +20,9 @@ const NavBarMusician = ({setCurrentUser}) => {
 
   return (
     <div>
+        { currentUser &&
+        <h1>{currentUser.username}</h1>
+      }
       <ul>
       <li onClick={ handleLogout }>Freenote</li>
         <li><Link to="/find_work">Find Work</Link></li>

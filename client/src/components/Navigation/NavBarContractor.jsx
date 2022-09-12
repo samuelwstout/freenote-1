@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom' 
 
-const NavBarContractor = ({setCurrentUser}) => {
+const NavBarContractor = ({setCurrentUser, currentUser}) => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -19,6 +19,9 @@ const NavBarContractor = ({setCurrentUser}) => {
 
   return (
     <div>
+        { currentUser &&
+        <h1>{currentUser.username}</h1>
+      }
         <ul>
             <li><Link to="/">Freenote</Link></li>
             <li><Link to="/create_job">Create Job</Link></li>

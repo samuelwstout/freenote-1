@@ -33,12 +33,12 @@ useEffect(() => {
         <Route path="/signup_as_musician" element={<SignupAsMusician setCurrentUser={setCurrentUser} />} />
         <Route path="/login" element={<Login setCurrentUser={setCurrentUser} currentUser={currentUser} />} />
         <Route path="/create_job" element={<CreateJob setCurrentUser={setCurrentUser} currentUser={currentUser}  />} />
-        <Route path="/my_jobs" element={<MyJobs currentUser={currentUser} />} />
+        <Route path="/my_jobs" element={<MyJobs currentUser={currentUser} setCurrentUser={setCurrentUser} />} />
         {/* When a contractor clicks on a job in 'my jobs'. /my_jobs/job/:id */}
         <Route path="/contractor_profile" element={<ContractorProfile currentUser={currentUser} />} />
         <Route path="/find_work" element={<FindWork setCurrentUser={setCurrentUser} currentUser={currentUser} />} />
         {/* When musician clicks 'apply' on a job posting (/find_work/job/:id) */}
-        <Route path="/my_applications" element={<MyApplications />} />
+        <Route path="/my_applications" element={<MyApplications setCurrentUser={setCurrentUser} currentUser={currentUser} />} />
         <Route path="/musician_profile" element={<MusicianProfile />} />
       </Routes>
   </Router>
