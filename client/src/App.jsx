@@ -13,25 +13,33 @@ import ContractorProfile from './components/ContractorApp/ContractorProfile';
 import MusicianProfile from './components/MusicianApp/MusicianProfile';
 
 const App = () => {
+
 const [currentUser, setCurrentUser] = useState(null)
-const [loggedIn, setLoggedIn] = useState(false)
+
+useEffect(() => {
+  fetch('/api/me').then((r) => {
+    if (r.ok) {
+      r.json().then((currentUser) => setCurrentUser(currentUser))
+    }
+  })
+}, [])
 
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Landingpage currentUser={currentUser} />} />
         <Route path="/signup" element={<Signup currentUser={currentUser} />} />
-        <Route path="/signup_as_contractor" element={<SignupAsContractor setCurrentUser={setCurrentUser} setLoggedIn={setLoggedIn} />} />
-        <Route path="/signup_as_musician" element={<SignupAsMusician setCurrentUser={setCurrentUser} setLoggedIn={setLoggedIn} />} />
+        <Route path="/signup_as_contractor" element={<SignupAsContractor setCurrentUser={setCurrentUser} />} />
+        <Route path="/signup_as_musician" element={<SignupAsMusician setCurrentUser={setCurrentUser} />} />
         <Route path="/login" element={<Login setCurrentUser={setCurrentUser} currentUser={currentUser} />} />
-        <Route path="/create_job" element={<CreateJob setCurrentUser={setCurrentUser} currentUser={currentUser} />} />
-        <Route path="/my_jobs" element={<MyJobs />} />
+        <Route path="/create_job" element={<CreateJob setCurrentUser={setCurrentUser} currentUser={currentUser}  />} />
+        <Route path="/my_jobs" element={<MyJobs currentUser={currentUser} />} />
         {/* When a contractor clicks on a job in 'my jobs'. /my_jobs/job/:id */}
-        <Route path="/contractor_profile" element={<ContractorProfile />} />
-        <Route path="/find_work" element={<FindWork setCurrentUser={setCurrentUser} currentUser={currentUser} loggedIn={loggedIn} />} />
+        <Route path="/contractor_profile" element={<ContractorProfile currentUser={currentUser} />} />
+        <Route path="/find_work" element={<FindWork setCurrentUser={setCurrentUser} currentUser={currentUser} />} />
         {/* When musician clicks 'apply' on a job posting (/find_work/job/:id) */}
-        <Route path="/my_applications" element={<MyApplications loggedIn={loggedIn} />} />
-        <Route path="/musician_profile" element={<MusicianProfile loggedIn={loggedIn} />} />
+        <Route path="/my_applications" element={<MyApplications />} />
+        <Route path="/musician_profile" element={<MusicianProfile />} />
       </Routes>
   </Router>
   );

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 
-const SignupAsContractor = ({ setCurrentUser, setLoggedIn }) => {
+const SignupAsContractor = ({ setCurrentUser }) => {
 
   const navigate = useNavigate()
 
@@ -32,7 +32,6 @@ const SignupAsContractor = ({ setCurrentUser, setLoggedIn }) => {
           res.json().then(user => {
             setCurrentUser(user)
             navigate('/create_job')
-            setLoggedIn(true)
           })
         } else {
           res.json().then(errors => {

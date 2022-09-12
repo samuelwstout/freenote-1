@@ -3,16 +3,6 @@ import { Link, useNavigate } from 'react-router-dom'
 
 const Signup = () => {
 
-  // put {loggedIn} in parameters after writing auth
-
-  // const navigate = useNavigate();
-
-  // useEffect(() => {
-  //   if (loggedIn) {
-  //     navigate('/find_work')
-  //   }
-  // }, [loggedIn])
-
   return (
     <div>
       <h1>Join as musician or contractor</h1>

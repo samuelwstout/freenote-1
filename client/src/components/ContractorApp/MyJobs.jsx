@@ -1,7 +1,17 @@
-import React from 'react';
+import React, {useEffect} from 'react';
+import { useNavigate } from 'react-router-dom';
 import NavBarContractor from '../Navigation/NavBarContractor';
 
-const MyJobs = () => {
+const MyJobs = ({currentUser}) => {
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (currentUser == null) {
+      navigate('/')
+    }
+  }, [currentUser])
+
   return (
     <div>
         <NavBarContractor />

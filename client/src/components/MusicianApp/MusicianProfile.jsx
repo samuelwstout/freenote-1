@@ -2,15 +2,9 @@ import React, {useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
 import NavBarMusician from '../Navigation/NavBarMusician';
 
-const MusicianProfile = ({loggedIn}) => {
+const MusicianProfile = () => {
 
   const navigate = useNavigate();
-
-  useEffect(() => {
-    if (loggedIn == false) {
-      navigate('/')
-    }
-  }, [loggedIn])
 
   return (
     <div>

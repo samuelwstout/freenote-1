@@ -1,11 +1,22 @@
-import React from 'react';
+import React, {useEffect} from 'react';
+import { useNavigate } from 'react-router-dom';
 import NavBarContractor from '../Navigation/NavBarContractor';
 
 const CreateJob = ({setCurrentUser, currentUser}) => {
   
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (currentUser == null) {
+      navigate('/')
+    }
+  }, [currentUser])
+
   return (
     <div>
-      <h1>{currentUser.username}</h1>
+      { currentUser &&
+        <h1>{currentUser.username}</h1>
+      }
       <NavBarContractor setCurrentUser={setCurrentUser} />
       <h1>Create Job Post</h1>
         <form>
