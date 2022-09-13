@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
 import NavBarMusician from '../Navigation/NavBarMusician';
 
-const MusicianProfile = ({currentUser}) => {
+const MusicianProfile = ({currentUser, setCurrentUser}) => {
 
   const navigate = useNavigate();
 
@@ -14,7 +14,7 @@ const MusicianProfile = ({currentUser}) => {
 
   return (
     <div>
-      <NavBarMusician />
+      <NavBarMusician currentUser={currentUser} setCurrentUser={setCurrentUser} />
       <h3>First name: Insert here</h3>
         <h3>Last name: Insert here</h3>
         <h3>Password: Insert here</h3>

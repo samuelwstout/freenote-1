@@ -23,6 +23,7 @@ const NavBarContractor = ({setCurrentUser, currentUser}) => {
         <h1>{currentUser.username}</h1>
       }
         <ul>
+          <li onClick={handleLogout}>Freenote</li>
             <li><Link to="/create_job">Create Job</Link></li>
             <li><Link to="/my_jobs">My Jobs</Link></li>
             <li><Link to="/contractor_profile">Profile</Link></li>
