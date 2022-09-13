@@ -24,7 +24,6 @@ useEffect(() => {
   })
 }, [])
 
-
   return (
     <Router>
       <Routes>

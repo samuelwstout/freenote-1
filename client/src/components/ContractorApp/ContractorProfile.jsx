@@ -14,7 +14,7 @@ const ContractorProfile = ({currentUser}) => {
 
   return (
     <div>
-      <NavBarContractor />
+      <NavBarContractor currentUser={currentUser}/>
         <h3>First name: First name</h3>
         <h3>Last name: Last name</h3>
         <h3>Email: email</h3>
