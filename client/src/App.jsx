@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Landingpage from './components/Static/Landingpage';
 import Login from './components/Authentication/Login';
-import Signup from './components/Authentication/SignUp';
+import SignUp from './components/Authentication/SignUp';
 import SignupAsContractor from './components/Authentication/SignUpAsContractor';
 import SignupAsMusician from './components/Authentication/SignUpAsMusician';
 import CreateJob from './components/ContractorApp/CreateJob';
@@ -28,7 +28,7 @@ useEffect(() => {
     <Router>
       <Routes>
         <Route path="/" element={<Landingpage currentUser={currentUser} />} />
-        <Route path="/signup" element={<Signup currentUser={currentUser} />} />
+        <Route path="/signup" element={<SignUp currentUser={currentUser} />} />
         <Route path="/signup_as_contractor" element={<SignupAsContractor setCurrentUser={setCurrentUser} />} />
         <Route path="/signup_as_musician" element={<SignupAsMusician setCurrentUser={setCurrentUser} />} />
         <Route path="/login" element={<Login setCurrentUser={setCurrentUser} currentUser={currentUser} />} />

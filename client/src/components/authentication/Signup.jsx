@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 
-const Signup = () => {
+const SignUp = () => {
 
   return (
     <div>
@@ -12,4 +12,4 @@ const Signup = () => {
   )
 }
 
-export default Signup
+export default SignUp
