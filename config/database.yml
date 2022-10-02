@@ -84,3 +84,4 @@ production:
   database: freenote_production
   username: freenote
   password: <%= ENV["FREENOTE_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
