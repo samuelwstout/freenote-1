@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Landingpage from './components/Static/Landingpage';
-import Login from './components/Authentication/Login';
 import SignUp from './components/Authentication/SignUp';
 import SignupAsContractor from './components/Authentication/SignUpAsContractor';
 import SignupAsMusician from './components/Authentication/SignUpAsMusician';
@@ -31,7 +30,6 @@ useEffect(() => {
         <Route path="/signup" element={<SignUp currentUser={currentUser} />} />
         <Route path="/signup_as_contractor" element={<SignupAsContractor setCurrentUser={setCurrentUser} />} />
         <Route path="/signup_as_musician" element={<SignupAsMusician setCurrentUser={setCurrentUser} />} />
-        <Route path="/login" element={<Login setCurrentUser={setCurrentUser} currentUser={currentUser} />} />
         <Route path="/create_job" element={<CreateJob setCurrentUser={setCurrentUser} currentUser={currentUser}  />} />
         <Route path="/my_jobs" element={<MyJobs currentUser={currentUser} setCurrentUser={setCurrentUser} />} />
         {/* When a contractor clicks on a job in 'my jobs'. /my_jobs/job/:id */}
